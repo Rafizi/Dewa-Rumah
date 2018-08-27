@@ -54,6 +54,7 @@ public class RecylerViewAdapterMainActivity extends RecyclerView.Adapter<Recyler
 
                 Intent i = new Intent(c, DetailMainActivity.class);
 //                i.putExtra("nama",NamaProject);
+                i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 c.startActivity(i);
 
             }
