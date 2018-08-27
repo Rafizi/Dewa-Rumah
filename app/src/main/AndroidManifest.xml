@@ -12,19 +12,34 @@
         <activity
             android:name=".BeforeLogin.Activity.MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
         <activity
-            android:windowSoftInputMode="adjustPan"
-            android:name=".BeforeLogin.Activity.Login" />
-        <activity android:name=".BeforeLogin.Activity.SignUp" />
-        <activity android:name=".BeforeLogin.Activity.DetailMainActivity" />
-        <activity android:name=".AfterLogin.SA.MainActivitySAgent"></activity>
+            android:name=".BeforeLogin.Activity.Login"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize"/>
+        <activity
+            android:name=".BeforeLogin.Activity.SignUp"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize"
+            />
+        <activity
+            android:name=".BeforeLogin.Activity.DetailMainActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize"
+            />
+        <activity
+            android:name=".AfterLogin.SA.MainActivitySAgent"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize"></activity>
     </application>
 
 </manifest>
