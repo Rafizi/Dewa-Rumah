@@ -1,4 +1,4 @@
-package com.naufalrafizi.dewarumah.BeforeLogin;
+package com.naufalrafizi.dewarumah.BeforeLogin.Activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

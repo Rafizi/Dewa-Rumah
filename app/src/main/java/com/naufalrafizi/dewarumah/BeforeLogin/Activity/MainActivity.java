@@ -1,5 +1,6 @@
 package com.naufalrafizi.dewarumah.BeforeLogin.Activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
@@ -12,6 +13,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 import com.naufalrafizi.dewarumah.BeforeLogin.Adapter.RecylerViewAdapterMainActivity;
 import com.naufalrafizi.dewarumah.BeforeLogin.Adapter.ViewPagerAdapterMainActivity;
@@ -20,6 +23,7 @@ import com.naufalrafizi.dewarumah.R;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    Button btnLogin,btnSignUp;
     ViewPagerAdapterMainActivity vpAdapterMainActivity;
     ViewPager vpMainActivity;
     RecylerViewAdapterMainActivity rvAdapterMainActivity;
@@ -55,13 +59,29 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Inisialisasi();
         setUpNav();
         setUpViewPager();
         setUpRecylerView();
 
+        btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                startActivity(new Intent(getApplicationContext(),Login.class));
+
+            }
+        });
+
     }
 
-    public void setUpRecylerView() {
+    private void Inisialisasi() {
+
+        btnLogin = (Button)findViewById(R.id.btnClickLogin);
+
+    }
+
+    private void setUpRecylerView() {
 
         RecyclerView rvListPromo = (RecyclerView) findViewById(R.id.rvListPromo);
         rvListPromo.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));

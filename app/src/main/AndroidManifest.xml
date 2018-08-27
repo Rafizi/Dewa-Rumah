@@ -19,9 +19,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".BeforeLogin.Login" />
-        <activity android:name=".BeforeLogin.SignUp" />
-        <activity android:name=".BeforeLogin.Activity.DetailMainActivity"></activity>
+        <activity
+            android:windowSoftInputMode="adjustPan"
+            android:name=".BeforeLogin.Activity.Login" />
+        <activity android:name=".BeforeLogin.Activity.SignUp" />
+        <activity android:name=".BeforeLogin.Activity.DetailMainActivity" />
+        <activity android:name=".AfterLogin.SA.MainActivitySAgent"></activity>
     </application>
 
 </manifest>
