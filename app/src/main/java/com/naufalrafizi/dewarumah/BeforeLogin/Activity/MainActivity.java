@@ -1,10 +1,9 @@
-package com.naufalrafizi.dewarumah.AfterLogin;
+package com.naufalrafizi.dewarumah.BeforeLogin.Activity;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.view.ViewPager;
-import android.view.View;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -14,30 +13,66 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.naufalrafizi.dewarumah.AfterLogin.Adapter.ViewPagerAdapter;
+import com.naufalrafizi.dewarumah.BeforeLogin.Adapter.RecylerViewAdapterMainActivity;
+import com.naufalrafizi.dewarumah.BeforeLogin.Adapter.ViewPagerAdapterMainActivity;
 import com.naufalrafizi.dewarumah.R;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    ViewPagerAdapter adapter;
-    ViewPager vpager;
+    ViewPagerAdapterMainActivity vpAdapterMainActivity;
+    ViewPager vpMainActivity;
+    RecylerViewAdapterMainActivity rvAdapterMainActivity;
+
+    String[] NamaPromo = {
+            "Alana",
+            "Ayana",
+            "Greenville Cileungsi",
+            "Felicity Festival",
+            "Felicity Hill",
+            "Greenland Healthful Living",
+            "Greenland Foresthill",
+            "Greenland River Villa",
+            "Greenville Darul Istiqomah",
+    };
+
+    int [] ImagePromo = {
+
+            R.drawable.alana,
+            R.drawable.ayana,
+            R.drawable.rgv,
+            R.drawable.felfest,
+            R.drawable.felhill,
+            R.drawable.gd2,
+            R.drawable.gd3,
+            R.drawable.gd4,
+            R.drawable.rgdi
+
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main);
+
+        setUpNav();
+        setUpViewPager();
+        setUpRecylerView();
+
+    }
+
+    public void setUpRecylerView() {
+
+        RecyclerView rvListPromo = (RecyclerView) findViewById(R.id.rvListPromo);
+        rvListPromo.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
+        rvAdapterMainActivity = new RecylerViewAdapterMainActivity(getApplication(),ImagePromo);
+        rvListPromo.setAdapter(rvAdapterMainActivity);
+
+    }
+
+    public void setUpNav(){
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-        setUpViewPager();
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -49,10 +84,10 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
     }
 
-    private void setUpViewPager() {
-        vpager = (ViewPager)findViewById(R.id.vPager);
-        adapter = new ViewPagerAdapter (this);
-        vpager.setAdapter(adapter);
+    public void setUpViewPager() {
+        vpMainActivity = (ViewPager) findViewById(R.id.vPager);
+        vpAdapterMainActivity = new ViewPagerAdapterMainActivity(this);
+        vpMainActivity.setAdapter(vpAdapterMainActivity);
     }
 
     @Override

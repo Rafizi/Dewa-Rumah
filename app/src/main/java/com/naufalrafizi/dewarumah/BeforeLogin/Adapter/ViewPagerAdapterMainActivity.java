@@ -1,4 +1,4 @@
-package com.naufalrafizi.dewarumah.AfterLogin.Adapter;
+package com.naufalrafizi.dewarumah.BeforeLogin.Adapter;
 
 import android.content.Context;
 import android.media.Image;
@@ -12,19 +12,18 @@ import android.widget.LinearLayout;
 
 import com.naufalrafizi.dewarumah.R;
 
-public class ViewPagerAdapter extends PagerAdapter {
+public class ViewPagerAdapterMainActivity extends PagerAdapter {
 
     Context context;
     LayoutInflater inflater;
 
     public int imgResource [] = {
-            R.mipmap.ic_launcher,
-            R.mipmap.ic_launcher,
-            R.mipmap.ic_launcher,
-            R.mipmap.ic_launcher
+            R.drawable.promo1,
+            R.drawable.promo2,
+            R.drawable.promo3
     };
 
-    public ViewPagerAdapter (Context context){
+    public ViewPagerAdapterMainActivity(Context context){
         this.context = context;
     }
 

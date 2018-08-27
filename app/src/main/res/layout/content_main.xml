@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".AfterLogin.MainActivity"
+    tools:context=".BeforeLogin.Activity.MainActivity"
     tools:showIn="@layout/app_bar_main">
 
     <LinearLayout
@@ -190,11 +190,9 @@
             android:layout_height="match_parent">
 
             <android.support.v7.widget.RecyclerView
-                android:id="@+id/rvListProject"
+                android:id="@+id/rvListPromo"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-            </android.support.v7.widget.RecyclerView>
+                android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
 
         </LinearLayout>
 
