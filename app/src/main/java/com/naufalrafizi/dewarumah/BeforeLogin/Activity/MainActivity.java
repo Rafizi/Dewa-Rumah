@@ -17,11 +17,14 @@ import com.naufalrafizi.dewarumah.BeforeLogin.Adapter.RecylerViewAdapterMainActi
 import com.naufalrafizi.dewarumah.BeforeLogin.Adapter.ViewPagerAdapterMainActivity;
 import com.naufalrafizi.dewarumah.R;
 
+import me.relex.circleindicator.CircleIndicator;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     ViewPagerAdapterMainActivity vpAdapterMainActivity;
     ViewPager vpMainActivity;
+    CircleIndicator indicator;
     RecylerViewAdapterMainActivity rvAdapterMainActivity;
 
     String[] NamaPromo = {
@@ -86,8 +89,11 @@ public class MainActivity extends AppCompatActivity
 
     public void setUpViewPager() {
         vpMainActivity = (ViewPager) findViewById(R.id.vPager);
+        indicator = (CircleIndicator)findViewById(R.id.circle);
         vpAdapterMainActivity = new ViewPagerAdapterMainActivity(this);
         vpMainActivity.setAdapter(vpAdapterMainActivity);
+        indicator.setViewPager(vpMainActivity);
+
     }
 
     @Override
