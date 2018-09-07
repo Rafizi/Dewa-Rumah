@@ -1,5 +1,6 @@
 package com.naufalrafizi.dewarumah.BeforeLogin.Activity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
@@ -30,6 +31,7 @@ public class MainActivity extends AppCompatActivity
     ViewPager vpMainActivity;
     CircleIndicator indicator;
     RecylerViewAdapterMainActivity rvAdapterMainActivity;
+    public static Activity fa;
 
     String[] NamaPromo = {
             "Alana",
@@ -62,6 +64,8 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        fa =this;
+
         Inisialisasi();
         setUpNav();
         setUpViewPager();
@@ -77,6 +81,8 @@ public class MainActivity extends AppCompatActivity
         });
 
     }
+
+
 
     private void Inisialisasi() {
 
@@ -108,6 +114,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void setUpViewPager() {
+
         vpMainActivity = (ViewPager) findViewById(R.id.vPager);
         indicator = (CircleIndicator)findViewById(R.id.circle);
         vpAdapterMainActivity = new ViewPagerAdapterMainActivity(this);
