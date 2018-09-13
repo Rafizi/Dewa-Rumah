@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.ArrayAdapter;
+import android.widget.TextView;
 
 import com.naufalrafizi.dewarumah.AfterLogin.SA.InputProspekSA.Helper.DBDataSource;
 import com.naufalrafizi.dewarumah.AfterLogin.SA.InputProspekSA.Model.MInputProspek;
@@ -22,6 +23,7 @@ public class ProspekActivitySA extends AppCompatActivity {
     ArrayList<MInputProspek>mList = new ArrayList<>();
 
     RecyclerViewAdapterProspekSA rvAdapterProspek;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,11 +39,11 @@ public class ProspekActivitySA extends AppCompatActivity {
         //ambil semua data barang
         mList= dataSource.getAllProspek();
 
+
         RecyclerView rvProspek = (RecyclerView)findViewById(R.id.rvProspek);
         rvProspek.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
         rvAdapterProspek = new RecyclerViewAdapterProspekSA(getApplication(),mList);
         rvProspek.setAdapter(rvAdapterProspek);
-
 
 
     }

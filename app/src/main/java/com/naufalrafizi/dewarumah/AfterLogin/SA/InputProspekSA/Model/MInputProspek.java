@@ -7,18 +7,29 @@ package com.naufalrafizi.dewarumah.AfterLogin.SA.InputProspekSA.Model;
 public class MInputProspek {
 
     private String sa_prospek,email_prospek,notelp_prospek,nama_prospek,project_prospek;
-    private long id;
 
-    public String toString (){
-        return "Prospek \n"+"    Nama Prospek : " + nama_prospek +" \nProject Prospek :"+project_prospek+" \nSA Prospek : "+sa_prospek+
-                " \nEmail Prospek : " +email_prospek+" \nNoTelp Prospek : "+notelp_prospek+" ";
+    private int id;
+
+    public MInputProspek(int id, String nama,String project, String email, String notelp, String sa){
+
+        this.id = id;
+        this.nama_prospek = nama;
+        this.project_prospek = project;
+        this.email_prospek = email;
+        this.notelp_prospek = notelp;
+        this.sa_prospek= sa;
+
     }
 
-    public long getId() {
+    public MInputProspek() {
+
+    }
+
+    public int getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 

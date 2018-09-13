@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.naufalrafizi.dewarumah.AfterLogin.SA.InputProspekSA.Helper.DBDataSource;
 import com.naufalrafizi.dewarumah.AfterLogin.SA.InputProspekSA.Helper.DataHelper;
@@ -32,7 +33,8 @@ public class RecyclerViewAdapterProspekSA extends RecyclerView.Adapter<RecyclerV
     private LayoutInflater inflater;
     private DBDataSource dataSource;
 
-    public RecyclerViewAdapterProspekSA(Context c, ArrayList<MInputProspek> mList ){
+
+    public RecyclerViewAdapterProspekSA(Context c, ArrayList<MInputProspek> mList){
 
         data = mList;
 //        this.mNamaPromo = NamaPromo;
@@ -43,6 +45,8 @@ public class RecyclerViewAdapterProspekSA extends RecyclerView.Adapter<RecyclerV
 
     @Override
     public RecyclerViewAdapterProspekSA.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+
+
 
         View v = inflater.inflate(R.layout.costum_list_prospek,parent,false);
         RecyclerViewAdapterProspekSA.ViewHolder viewHolder = new RecyclerViewAdapterProspekSA.ViewHolder(v);
@@ -73,7 +77,15 @@ public class RecyclerViewAdapterProspekSA extends RecyclerView.Adapter<RecyclerV
         holder.btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                
+
+                dataSource = new DBDataSource(c);
+
+                dataSource.delete(data.get(position));
+                data.remove(position);
+                notifyItemRemoved(position);
+
+                Toast.makeText(c, "Sudah Kehapus data : " +position, Toast.LENGTH_SHORT).show();
+
 
             }
         });

@@ -11,6 +11,9 @@ import com.naufalrafizi.dewarumah.AfterLogin.SA.InputProspekSA.Model.MInputProsp
 
 import java.util.ArrayList;
 
+import static com.naufalrafizi.dewarumah.AfterLogin.SA.InputProspekSA.Helper.DataHelper.COLUMN_ID;
+import static com.naufalrafizi.dewarumah.AfterLogin.SA.InputProspekSA.Helper.DataHelper.TABLE_NAME;
+
 /**
  * Created by Asus on 9/6/2018.
  */
@@ -65,14 +68,14 @@ public class DBDataSource {
 
         // mengeksekusi perintah SQL insert data
         // yang akan mengembalikan sebuah insert ID
-        long insertId = database.insert(DataHelper.TABLE_NAME,null,values);
+        long insertId = database.insert(TABLE_NAME,null,values);
 
         // setelah data dimasukan, memanggil
         // perintah SQL Select menggunakan cursor untuk
         // melihat apakah data tadi benar2 sudah masuk
         // dengan menyesuakan ID = insertID
 
-        Cursor cursor = database.query(DataHelper.TABLE_NAME, allcolumn, DataHelper.COLUMN_ID + " = "+insertId,
+        Cursor cursor = database.query(TABLE_NAME, allcolumn, DataHelper.COLUMN_ID + " = "+insertId,
                 null,null,null,null);
 
         // pindah data ke paling pertama
@@ -101,7 +104,7 @@ public class DBDataSource {
         /* Set atribut pada objek  prospek dengan
            data kursor yang diambil dari database*/
 
-        mInputProspek.setId(cursor.getLong(0));
+        mInputProspek.setId(cursor.getInt(0));
         mInputProspek.setNama_prospek(cursor.getString(0));
         mInputProspek.setProject_prospek(cursor.getString(2));
         mInputProspek.setSa_prospek(cursor.getString(1));
@@ -116,7 +119,7 @@ public class DBDataSource {
         ArrayList<MInputProspek>daftarProspek = new ArrayList<>();
 
         // select all SQL Query
-        Cursor cursor = database.query(DataHelper.TABLE_NAME,allcolumn,
+        Cursor cursor = database.query(TABLE_NAME,allcolumn,
                 null,null,null,null,null);
 
         // pindah ke data paling pertama
@@ -131,11 +134,25 @@ public class DBDataSource {
         return daftarProspek;
     }
 
-    public void delete(long id){
+    public void delete(MInputProspek id){
 
-        String strFilter = "idProspek=" + id;
-        database.delete(dbHelper.TABLE_NAME,strFilter,null);
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        db.delete(TABLE_NAME, COLUMN_ID + " = ?",
+                new String[]{String.valueOf(id.getId())});
+        db.close();
 
+    }
+
+    public int getNotesCount() {
+        String countQuery = "SELECT  * FROM " + TABLE_NAME;
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        Cursor cursor = db.rawQuery(countQuery, null);
+
+        int count = cursor.getCount();
+        cursor.close();
+
+        // return count
+        return count;
     }
 
 }
