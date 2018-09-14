@@ -20,6 +20,7 @@ import com.naufalrafizi.dewarumah.AfterLogin.SA.ProspekSA.Activity.ProspekActivi
 import com.naufalrafizi.dewarumah.R;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Asus on 9/6/2018.
@@ -27,17 +28,19 @@ import java.util.ArrayList;
 
 public class RecyclerViewAdapterProspekSA extends RecyclerView.Adapter<RecyclerViewAdapterProspekSA.ViewHolder> {
 
-    private ArrayList<MInputProspek> data;
-    private Context c;
+    private List<MInputProspek> data;
+    RecyclerViewAdapterProspekSA adapter;
+    private Context c ;
     private LayoutInflater inflater;
-    private DBDataSource dataSource;
+    private DataHelper helper;
 
-    public RecyclerViewAdapterProspekSA(Context c, ArrayList<MInputProspek> mList ){
+    public RecyclerViewAdapterProspekSA(Context c, List<MInputProspek> mList){
 
         data = mList;
 //        this.mNamaPromo = NamaPromo;
         this.c = c.getApplicationContext();
         this.inflater = LayoutInflater.from(c);
+        this.helper = new DataHelper(c);
 
     }
 
@@ -64,19 +67,27 @@ public class RecyclerViewAdapterProspekSA extends RecyclerView.Adapter<RecyclerV
         String Sa = object.getSa_prospek();
         String Email = object.getEmail_prospek();
 
-        holder.nama.setText( "Nama : "+namaProspek);
-        holder.project.setText("Project : "+Project);
-        holder.SA.setText("Sales Agent : "+Sa);
-        holder.email.setText("Email : "+Email);
-        holder.notelp.setText("Nomer Telpon : "+nomorTelpon);
+        holder.nama.setText(namaProspek);
+        holder.email.setText(Email);
+        holder.SA.setText(Sa);
+        holder.notelp.setText(nomorTelpon);
+        holder.project.setText(Project);
 
-        holder.btnDelete.setOnClickListener(new View.OnClickListener() {
+
+
+        holder.cvProspek.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                
+            public void onClick(View view) {
 
             }
         });
+        holder.btnDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                deleteNote(position);
+            }
+        });
+
 //        holder.cvProspek.setOnLongClickListener(new View.OnLongClickListener() {
 //            @Override
 //            public boolean onLongClick(View v) {
@@ -105,6 +116,41 @@ public class RecyclerViewAdapterProspekSA extends RecyclerView.Adapter<RecyclerV
 //        });
 
     }
+
+    /**
+     * Updating note in db and updating
+     * item in the list by its position
+     */
+    private void updateProspek(String note, int position) {
+        MInputProspek n = data.get(position);
+        // updating note text
+        n.setNama_prospek(note);
+        n.setProject_prospek(note);
+        n.setEmail_prospek(note);
+        n.setSa_prospek(note);
+        n.setNotelp_prospek(note);
+
+        // updating note in db
+        helper.update(n);
+
+        // refreshing the list
+        data.set(position, n);
+    }
+
+    /**
+     * Deleting note from SQLite and removing the
+     * item from the list by its position
+     */
+    private void deleteNote(int position) {
+        // deleting the note from db
+        helper.delete(data.get(position));
+
+        // removing the note from the list
+        data.remove(position);
+        notifyItemRemoved(position);
+    }
+
+
 
     @Override
     public int getItemCount() {

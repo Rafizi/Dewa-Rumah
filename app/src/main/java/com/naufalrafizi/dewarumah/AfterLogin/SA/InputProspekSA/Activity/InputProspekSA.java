@@ -106,5 +106,35 @@ public class InputProspekSA extends AppCompatActivity implements View.OnClickLis
 
 
 
+    /**
+     * Updating note in db and updating
+     * item in the list by its position
+     */
+    private void updateProspek(String note, int position) {
+        MInputProspek n = pList.get(position);
+        // updating note text
+        n.setNama_prospek(note);
+        n.setProject_prospek(note);
+        n.setEmail_prospek(note);
+        n.setSa_prospek(note);
+        n.setNotelp_prospek(note);
 
+        // updating note in db
+        helper.update(n);
+
+        // refreshing the list
+        pList.set(position, n);
+    }
+
+    /**
+     * Deleting note from SQLite and removing the
+     * item from the list by its position
+     */
+    private void deleteNote(int position) {
+        // deleting the note from db
+        helper.delete(pList.get(position));
+
+        // removing the note from the list
+        pList.remove(position);
+    }
 }
