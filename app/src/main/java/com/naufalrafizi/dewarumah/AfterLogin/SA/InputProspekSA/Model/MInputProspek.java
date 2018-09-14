@@ -9,9 +9,37 @@ public class MInputProspek {
     private String sa_prospek,email_prospek,notelp_prospek,nama_prospek,project_prospek;
     private long id;
 
-    public String toString (){
-        return "Prospek \n"+"    Nama Prospek : " + nama_prospek +" \nProject Prospek :"+project_prospek+" \nSA Prospek : "+sa_prospek+
-                " \nEmail Prospek : " +email_prospek+" \nNoTelp Prospek : "+notelp_prospek+" ";
+    public static final String TABLE_NAME = "data_sales_agent";
+    public static final String COLUMN_ID = "idProspek";
+    public static final String COLUMN_NAME = "namaProspek";
+    public static final String COLUMN_PROJECT = "projectProspek";
+    public static final String COLUMN_EMAIL = "emailProspek";
+    public static final String COLUMN_SA = "saProspek";
+    public static final String COLUMN_NO_TELP = "telpProspek";
+
+    public static final String dB_create =
+            "create table "
+            + TABLE_NAME + "("
+            + COLUMN_ID +" integer primary key autoincrement, "
+            + COLUMN_NAME+ " varchar(50) not null, "
+            + COLUMN_PROJECT+ " varchar(50) not null, "
+            + COLUMN_EMAIL+ " varchar(50) not null, "
+            + COLUMN_SA+ " varchar(50) not null, "
+            + COLUMN_NO_TELP+ " varchar(50) not null);";
+
+
+
+    public MInputProspek(){
+
+    }
+
+    public MInputProspek(int id, String email, String notelp, String sa, String projek, String nama) {
+        this.id = id;
+        this.nama_prospek = nama;
+        this.email_prospek = email;
+        this.sa_prospek = sa;
+        this.notelp_prospek = notelp;
+        this.project_prospek = projek;
     }
 
     public long getId() {

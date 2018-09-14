@@ -9,15 +9,22 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.naufalrafizi.dewarumah.AfterLogin.SA.InputProspekSA.Helper.DBDataSource;
+import com.naufalrafizi.dewarumah.AfterLogin.SA.InputProspekSA.Helper.DataHelper;
 import com.naufalrafizi.dewarumah.AfterLogin.SA.InputProspekSA.Model.MInputProspek;
 import com.naufalrafizi.dewarumah.AfterLogin.SA.ProspekSA.Activity.ProspekActivitySA;
+import com.naufalrafizi.dewarumah.AfterLogin.SA.ProspekSA.Adapter.RecyclerViewAdapterProspekSA;
 import com.naufalrafizi.dewarumah.R;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class InputProspekSA extends AppCompatActivity implements View.OnClickListener {
 
     TextInputEditText edtNamaInputProspek,edtProjectInputProspek,edtEmailInputProspek,edtSAInputProspek,edtNomorTelponInputProspek;
     Button btnSubmitInputProspek,btnRead;
-    DBDataSource dbDataSource;
+    DataHelper helper;
+    List<MInputProspek> pList = new ArrayList<>();
+    RecyclerViewAdapterProspekSA adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,10 +37,11 @@ public class InputProspekSA extends AppCompatActivity implements View.OnClickLis
         btnRead.setOnClickListener(this);
 
 
-        dbDataSource = new DBDataSource(this);
+        helper = new DataHelper(this);
+
 
         //membuat sambungan baru ke database
-        dbDataSource.open();
+
 
     }
 
@@ -52,45 +60,25 @@ public class InputProspekSA extends AppCompatActivity implements View.OnClickLis
     @Override
     public void onClick(View v) {
 
-        String nama;
-        String project;
-        String email;
-        String  sa;
-        String  notelp;
-
-        //inisialisai model
-        MInputProspek mInputProspek = null;
-
-            nama = edtNamaInputProspek.getText().toString();
-            email = edtEmailInputProspek.getText().toString();
-            project = edtProjectInputProspek.getText().toString();
-            sa = edtSAInputProspek.getText().toString();
-            notelp = edtNomorTelponInputProspek.getText().toString();
-
-
-
         switch (v.getId()){
             case R.id.btnSubmitInputProspek :
                 //insert data barang baru
-
-                if (nama.isEmpty() && email.isEmpty() && project.isEmpty() && sa.isEmpty() && notelp.isEmpty()){
-
-                    Toast.makeText(this, "yeay", Toast.LENGTH_SHORT).show();
-
-                }else {
-
-                    mInputProspek = dbDataSource.createProspek(nama,email,notelp,sa,project);
-
-                    //konfirmasi kesuksesan
-                    Toast.makeText(this, "Masuk Barang \n"+
-                            " nama :  " +mInputProspek.getNama_prospek()+
-                            " email : "+mInputProspek.getEmail_prospek()+
-                            " notelp : "+mInputProspek.getNotelp_prospek()+
-                            " sa : "+mInputProspek.getSa_prospek()+
-                            " project : "+mInputProspek.getProject_prospek(), Toast.LENGTH_LONG).show();
-
-                }
-
+                MInputProspek mInputProspek = new MInputProspek();
+                createNote(
+                        edtNamaInputProspek.getText().toString(),
+                        edtEmailInputProspek.getText().toString(),
+                        edtProjectInputProspek.getText().toString(),
+                        edtSAInputProspek.getText().toString(),
+                        edtNomorTelponInputProspek.getText().toString()
+                        );
+                Toast.makeText(this, "Berhasil Masuk : "
+                               +mInputProspek.getId()+ ", \t"+
+                                mInputProspek.getNama_prospek()+ ", \t"+
+                                mInputProspek.getEmail_prospek()+ ", \t"+
+                                mInputProspek.getNotelp_prospek()+ ", \t"+
+                                mInputProspek.getSa_prospek()+ ", \t"+
+                                mInputProspek.getProject_prospek(),
+                        Toast.LENGTH_SHORT).show();
 
                 break;
 
@@ -98,4 +86,25 @@ public class InputProspekSA extends AppCompatActivity implements View.OnClickLis
                 startActivity(new Intent(getApplicationContext(), ProspekActivitySA.class));
         }
     }
+
+    private void createNote(String nama, String email, String notelp, String sa, String project) {
+        // inserting note in db and getting
+        // newly inserted note id
+        long id = helper.createProspek(nama,email,notelp,sa,project);
+
+        // get the newly inserted note from db
+        MInputProspek n = helper.getProspek(id);
+
+        if (n != null) {
+            // adding new note to array list at 0 position
+            pList.add(0, n);
+            // refreshing the list
+
+
+        }
+    }
+
+
+
+
 }

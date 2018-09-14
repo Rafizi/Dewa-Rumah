@@ -7,19 +7,23 @@ import android.support.v7.widget.RecyclerView;
 import android.widget.ArrayAdapter;
 
 import com.naufalrafizi.dewarumah.AfterLogin.SA.InputProspekSA.Helper.DBDataSource;
+import com.naufalrafizi.dewarumah.AfterLogin.SA.InputProspekSA.Helper.DataHelper;
 import com.naufalrafizi.dewarumah.AfterLogin.SA.InputProspekSA.Model.MInputProspek;
 import com.naufalrafizi.dewarumah.AfterLogin.SA.ProspekSA.Adapter.RecyclerViewAdapterProspekSA;
 import com.naufalrafizi.dewarumah.R;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ProspekActivitySA extends AppCompatActivity {
 
     //inisialisasi kontroler
-    DBDataSource dataSource;
+    DataHelper dbHelper;
 
+    RecyclerView rvProspek;
     //inisialisasi arraylist
-    ArrayList<MInputProspek>mList = new ArrayList<>();
+    List<MInputProspek> mList = new ArrayList<>();
+    MInputProspek p;
 
     RecyclerViewAdapterProspekSA rvAdapterProspek;
     @Override
@@ -27,19 +31,26 @@ public class ProspekActivitySA extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_prospek_sa);
         //inisialisasi widget
+        dbHelper = new DataHelper(this);
+        p = new MInputProspek();
 
 
-        dataSource = new DBDataSource(this);
+        mList.addAll(dbHelper.getAllProspek());
+
+
 
         //buka kontroler
-        dataSource.open();
+
 
         //ambil semua data barang
-        mList= dataSource.getAllProspek();
+//        mList= dataSource.getAllProspek();
 
-        RecyclerView rvProspek = (RecyclerView)findViewById(R.id.rvProspek);
-        rvProspek.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
-        rvAdapterProspek = new RecyclerViewAdapterProspekSA(getApplication(),mList);
+
+        rvProspek = (RecyclerView)findViewById(R.id.rvProspek);
+        RecyclerView.LayoutManager manager = new LinearLayoutManager(getApplicationContext());
+        rvProspek.setLayoutManager(manager);
+
+        rvAdapterProspek = new RecyclerViewAdapterProspekSA(getApplicationContext(),mList);
         rvProspek.setAdapter(rvAdapterProspek);
 
 
