@@ -4,7 +4,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.TextView;
 
 import com.naufalrafizi.dewarumah.AfterLogin.SA.InputProspekSA.Helper.DBDataSource;
 import com.naufalrafizi.dewarumah.AfterLogin.SA.InputProspekSA.Helper.DataHelper;
@@ -24,6 +26,7 @@ public class ProspekActivitySA extends AppCompatActivity {
     //inisialisasi arraylist
     List<MInputProspek> mList = new ArrayList<>();
     MInputProspek p;
+    TextView emptyTxt;
 
     RecyclerViewAdapterProspekSA rvAdapterProspek;
     @Override
@@ -33,12 +36,13 @@ public class ProspekActivitySA extends AppCompatActivity {
         //inisialisasi widget
         dbHelper = new DataHelper(this);
         p = new MInputProspek();
+        emptyTxt = (TextView)findViewById(R.id.empty_notes_view);
 
 
         mList.addAll(dbHelper.getAllProspek());
 
 
-
+        toggleEmptyNotes();
         //buka kontroler
 
 
@@ -55,5 +59,14 @@ public class ProspekActivitySA extends AppCompatActivity {
 
 
 
+    }
+    private void toggleEmptyNotes() {
+        // you can check notesList.size() > 0
+
+        if (dbHelper.getProjectCount() > 0) {
+            emptyTxt.setVisibility(View.GONE);
+        } else {
+            emptyTxt.setVisibility(View.VISIBLE);
+        }
     }
 }

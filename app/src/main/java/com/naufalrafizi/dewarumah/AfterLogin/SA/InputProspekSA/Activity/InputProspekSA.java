@@ -25,6 +25,7 @@ public class InputProspekSA extends AppCompatActivity implements View.OnClickLis
     DataHelper helper;
     List<MInputProspek> pList = new ArrayList<>();
     RecyclerViewAdapterProspekSA adapter;
+    MInputProspek p;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +36,7 @@ public class InputProspekSA extends AppCompatActivity implements View.OnClickLis
 
         btnSubmitInputProspek.setOnClickListener(this);
         btnRead.setOnClickListener(this);
+        p = new MInputProspek();
 
 
         helper = new DataHelper(this);
@@ -43,7 +45,10 @@ public class InputProspekSA extends AppCompatActivity implements View.OnClickLis
         //membuat sambungan baru ke database
 
 
+
     }
+
+
 
     private void Inisialisasi() {
         btnSubmitInputProspek = (Button)findViewById(R.id.btnSubmitInputProspek);
@@ -63,29 +68,29 @@ public class InputProspekSA extends AppCompatActivity implements View.OnClickLis
         switch (v.getId()){
             case R.id.btnSubmitInputProspek :
                 //insert data barang baru
-                MInputProspek mInputProspek = new MInputProspek();
+
                 createNote(
                         edtNamaInputProspek.getText().toString(),
                         edtEmailInputProspek.getText().toString(),
-                        edtProjectInputProspek.getText().toString(),
+                        edtNomorTelponInputProspek.getText().toString(),
                         edtSAInputProspek.getText().toString(),
-                        edtNomorTelponInputProspek.getText().toString()
-                        );
-                Toast.makeText(this, "Berhasil Masuk : "
-                               +mInputProspek.getId()+ ", \t"+
-                                mInputProspek.getNama_prospek()+ ", \t"+
-                                mInputProspek.getEmail_prospek()+ ", \t"+
-                                mInputProspek.getNotelp_prospek()+ ", \t"+
-                                mInputProspek.getSa_prospek()+ ", \t"+
-                                mInputProspek.getProject_prospek(),
-                        Toast.LENGTH_SHORT).show();
-
+                        edtProjectInputProspek.getText().toString()
+                );
+                Toast.makeText(this, "Data Masuk :"
+                        + p.getId()+",\t"
+                        + p.getNama_prospek()+",\t"
+                        + p.getEmail_prospek()+",\t"
+                        + p.getNotelp_prospek()+",\t"
+                        + p.getSa_prospek()+",\t"
+                        + p.getProject_prospek()+",\t"
+                        , Toast.LENGTH_SHORT).show();
                 break;
 
             case R.id.btnRead:
                 startActivity(new Intent(getApplicationContext(), ProspekActivitySA.class));
         }
     }
+
 
     private void createNote(String nama, String email, String notelp, String sa, String project) {
         // inserting note in db and getting
@@ -110,21 +115,7 @@ public class InputProspekSA extends AppCompatActivity implements View.OnClickLis
      * Updating note in db and updating
      * item in the list by its position
      */
-    private void updateProspek(String note, int position) {
-        MInputProspek n = pList.get(position);
-        // updating note text
-        n.setNama_prospek(note);
-        n.setProject_prospek(note);
-        n.setEmail_prospek(note);
-        n.setSa_prospek(note);
-        n.setNotelp_prospek(note);
 
-        // updating note in db
-        helper.update(n);
-
-        // refreshing the list
-        pList.set(position, n);
-    }
 
     /**
      * Deleting note from SQLite and removing the
