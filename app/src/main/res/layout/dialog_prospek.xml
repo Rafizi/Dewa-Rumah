@@ -13,10 +13,11 @@
         android:text="Nama"
         android:textSize="20sp"
         android:textColor="#000"/>
-    <android.support.design.widget.TextInputEditText
+    <EditText
         android:id="@+id/evNamaP"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
         android:hint="Enter Your Name"
         />
     <TextView
@@ -29,43 +30,29 @@
         android:text="Email"
         android:textSize="20sp"
         android:textColor="#000"/>
-    <android.support.design.widget.TextInputEditText
+    <EditText
         android:id="@+id/evEmailP"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
         android:hint="Enter Your Email"/>
 
     <TextView
-        android:layout_marginTop="5dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
-        android:fontFamily="sans-serif-medium"
-        android:lineSpacingExtra="8sp"
-        android:text="Project"
-        android:textSize="20sp"
-        android:textColor="#000"/>
-    <android.support.design.widget.TextInputEditText
-        android:id="@+id/evProjectP"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Enter Your Project"/>
-    <TextView
-        android:layout_marginTop="5dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
-        android:fontFamily="sans-serif-medium"
-        android:lineSpacingExtra="8sp"
-        android:text="SA"
-        android:textSize="20sp"
-        android:textColor="#000"/>
-    <android.support.design.widget.TextInputEditText
-        android:id="@+id/evSaP"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Enter Your SA"/>
-
+    android:layout_marginTop="5dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="5dp"
+    android:fontFamily="sans-serif-medium"
+    android:lineSpacingExtra="8sp"
+    android:text="SA"
+    android:textSize="20sp"
+    android:textColor="#000"/>
+    <EditText
+    android:id="@+id/evSaP"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:textColor="@android:color/black"
+    android:hint="Enter Your SA"/>
     <TextView
         android:layout_marginTop="5dp"
         android:layout_width="wrap_content"
@@ -76,9 +63,27 @@
         android:text="No. Telp"
         android:textSize="20sp"
         android:textColor="#000"/>
-    <android.support.design.widget.TextInputEditText
+    <EditText
         android:id="@+id/evNohpP"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
         android:hint="Enter Your No. Telp"/>
+    <TextView
+    android:layout_marginTop="5dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="5dp"
+    android:fontFamily="sans-serif-medium"
+    android:lineSpacingExtra="8sp"
+    android:text="Project"
+    android:textSize="20sp"
+    android:textColor="#000"/>
+    <EditText
+    android:id="@+id/evProjectP"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:textColor="@android:color/black"
+    android:hint="Enter Your Project"/>
+
 </LinearLayout>

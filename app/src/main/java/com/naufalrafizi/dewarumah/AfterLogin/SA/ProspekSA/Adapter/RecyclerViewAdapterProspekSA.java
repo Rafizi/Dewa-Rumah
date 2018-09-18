@@ -7,9 +7,11 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -34,7 +36,7 @@ public class RecyclerViewAdapterProspekSA extends RecyclerView.Adapter<RecyclerV
 
     private List<MInputProspek> data;
     RecyclerViewAdapterProspekSA adapter;
-    private Context c;
+    private Context context;
     private LayoutInflater inflater;
     private DataHelper helper;
 
@@ -42,8 +44,8 @@ public class RecyclerViewAdapterProspekSA extends RecyclerView.Adapter<RecyclerV
 
         data = mList;
 //        this.mNamaPromo = NamaPromo;
-        this.c = c.getApplicationContext();
-        this.inflater = LayoutInflater.from(c);
+        this.context = c.getApplicationContext();
+        this.inflater = LayoutInflater.from(context);
         this.helper = new DataHelper(c);
 
     }
@@ -64,44 +66,72 @@ public class RecyclerViewAdapterProspekSA extends RecyclerView.Adapter<RecyclerV
 
         final MInputProspek object = data.get(position);
 
-        String namaProspek = object.getNama_prospek();
-        String nomorTelpon = object.getNotelp_prospek();
-        String Project = object.getProject_prospek();
-        String Sa = object.getSa_prospek();
-        String Email = object.getEmail_prospek();
+        final String namaProspek = object.getNama_prospek();
+        final String nomorTelpon = object.getNotelp_prospek();
+        final String Project = object.getProject_prospek();
+        final String Sa = object.getSa_prospek();
+        final String Email = object.getEmail_prospek();
 
-        holder.nama.setText(namaProspek);
-        holder.email.setText(Email);
-        holder.SA.setText(Sa);
-        holder.notelp.setText(nomorTelpon);
-        holder.project.setText(Project);
+        holder.nama.setText("Nama   : " + namaProspek);
+        holder.email.setText("Email : " + Email);
+        holder.SA.setText("SA   : " + Sa);
+        holder.notelp.setText("No Telp  : " + nomorTelpon);
+        holder.project.setText("Project : " + Project);
 
         holder.cvProspek.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
-            public boolean onLongClick(View view) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(c);
-                builder.setCancelable(false)
-                        .setPositiveButton("Edit", new DialogInterface.OnClickListener() {
+            public boolean onLongClick(final View view) {
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(view.getRootView().getContext());
+                builder.create()
+                        .setCancelable(false);
+                builder.setPositiveButton("Edit", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        View v = inflater.inflate(R.layout.dialog_prospek, null);
+                        AlertDialog.Builder b = new AlertDialog.Builder(view.getRootView().getContext());
+                        b.setView(v);
+
+                        final EditText edtNama = (EditText) v.findViewById(R.id.evNamaP);
+                        final EditText edtEmail = (EditText) v.findViewById(R.id.evEmailP);
+                        final EditText edtPhone = (EditText) v.findViewById(R.id.evNohpP);
+                        final EditText edtSa = (EditText) v.findViewById(R.id.evSaP);
+                        final EditText edtProject = (EditText) v.findViewById(R.id.evProjectP);
+
+                        if (object != null) {
+                            edtNama.setText(object.getNama_prospek());
+                            edtEmail.setText(object.getEmail_prospek());
+                            edtPhone.setText(object.getNotelp_prospek());
+                            edtSa.setText(object.getSa_prospek());
+                            edtProject.setText(object.getProject_prospek());
+                        }
+                        b.setPositiveButton("Edit", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
-                                dialogUpdate(position);
-                            }
-                        })
-                        .setPositiveButton("Delete", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                deleteNote(position);
-                                Toast.makeText(c, "Data yang di hapus : " + position, Toast.LENGTH_SHORT).show();
+                                updateProspek(
+                                        edtNama.getText().toString(),
+                                        edtEmail.getText().toString(),
+                                        edtSa.getText().toString(),
+                                        edtPhone.getText().toString(),
+                                        edtProject.getText().toString(),
+                                        position
+                                );
                             }
                         });
-                AlertDialog alertDialog = builder.create();
-                alertDialog.show();
+                        AlertDialog dialog = b.create();
+                        dialog.show();
+                    }
+                });
+                builder.setNegativeButton("Delete", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        deleteNote(position);
+                    }
+                });
+                builder.show();
                 return true;
             }
         });
-
-
-
 
 
 //        holder.cvProspek.setOnLongClickListener(new View.OnLongClickListener() {
@@ -133,16 +163,24 @@ public class RecyclerViewAdapterProspekSA extends RecyclerView.Adapter<RecyclerV
 
     }
 
-    private void dialogUpdate(final int position) {
-        View v =  inflater.inflate(R.layout.dialog_prospek,null);
-        final AlertDialog.Builder updateUserInput =  new AlertDialog.Builder(c);
+    private void dialogUpdate(MInputProspek p, final int position) {
+        View v = inflater.inflate(R.layout.dialog_prospek, null);
+        final AlertDialog.Builder updateUserInput;
+        updateUserInput = new AlertDialog.Builder(context);
         updateUserInput.setView(v);
 
-        final EditText edtNama = (EditText)v.findViewById(R.id.evNamaP);
-        final EditText edtEmail = (EditText)v.findViewById(R.id.evEmailP);
-        final EditText edtPhone = (EditText)v.findViewById(R.id.evNohpP);
-        final EditText edtSa = (EditText)v.findViewById(R.id.evSaP);
-        final EditText edtProject = (EditText)v.findViewById(R.id.evProjectP);
+        final EditText edtNama = (EditText) v.findViewById(R.id.evNamaP);
+        final EditText edtEmail = (EditText) v.findViewById(R.id.evEmailP);
+        final EditText edtPhone = (EditText) v.findViewById(R.id.evNohpP);
+        final EditText edtSa = (EditText) v.findViewById(R.id.evSaP);
+        final EditText edtProject = (EditText) v.findViewById(R.id.evProjectP);
+        p = new MInputProspek();
+
+        edtNama.setHint(p.getNama_prospek());
+        edtEmail.setHint(p.getEmail_prospek());
+        edtPhone.setHint(p.getNotelp_prospek());
+        edtSa.setHint(p.getSa_prospek());
+        edtProject.setHint(p.getProject_prospek());
 
         updateUserInput.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
@@ -152,7 +190,7 @@ public class RecyclerViewAdapterProspekSA extends RecyclerView.Adapter<RecyclerV
                         edtEmail.getText().toString(),
                         edtPhone.getText().toString(),
                         edtSa.getText().toString(),
-                        edtProject.getText().toString(),position
+                        edtProject.getText().toString(), position
                 );
             }
         })
@@ -163,7 +201,10 @@ public class RecyclerViewAdapterProspekSA extends RecyclerView.Adapter<RecyclerV
                     }
                 });
 
-        updateUserInput.show();
+        final AlertDialog alertDialog = updateUserInput.create();
+        alertDialog.getWindow().setType(WindowManager.LayoutParams.TYPE_SYSTEM_ALERT);
+        alertDialog.show();
+
     }
 
     /**
@@ -184,20 +225,22 @@ public class RecyclerViewAdapterProspekSA extends RecyclerView.Adapter<RecyclerV
         data.remove(position);
         notifyItemRemoved(position);
     }
-    private void updateProspek(String nama, String project, String email, String sa, String notelp,int position) {
+
+    private void updateProspek(String nama, String email, String sa, String notelp, String project, int position) {
         MInputProspek n = data.get(position);
         // updating note text
         n.setNama_prospek(nama);
-        n.setProject_prospek(project);
         n.setEmail_prospek(email);
         n.setSa_prospek(sa);
         n.setNotelp_prospek(notelp);
+        n.setProject_prospek(project);
 
         // updating note in db
         helper.update(n);
 
         // refreshing the list
         data.set(position, n);
+        notifyItemChanged(position);
     }
 
 

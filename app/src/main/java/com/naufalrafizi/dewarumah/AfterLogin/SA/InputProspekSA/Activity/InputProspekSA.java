@@ -121,11 +121,4 @@ public class InputProspekSA extends AppCompatActivity implements View.OnClickLis
      * Deleting note from SQLite and removing the
      * item from the list by its position
      */
-    private void deleteNote(int position) {
-        // deleting the note from db
-        helper.delete(pList.get(position));
-
-        // removing the note from the list
-        pList.remove(position);
-    }
 }

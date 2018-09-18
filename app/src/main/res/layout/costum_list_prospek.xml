@@ -26,19 +26,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="nama" />
-
-                <TextView
-                    android:id="@+id/txtProject"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Project" />
-
-                <TextView
-                    android:id="@+id/txtSA"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="SA" />
-
                 <TextView
                     android:id="@+id/txtEmail"
                     android:layout_width="wrap_content"
@@ -46,10 +33,23 @@
                     android:text="Email" />
 
                 <TextView
+                    android:id="@+id/txtSA"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="SA" />
+                <TextView
                     android:id="@+id/txtNoTelp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="No Telp" />
+                <TextView
+                    android:id="@+id/txtProject"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Project" />
+
+
+
 
             </LinearLayout>
 
