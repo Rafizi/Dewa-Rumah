@@ -11,7 +11,7 @@ import android.widget.ImageView;
 
 import com.naufalrafizi.dewarumah.AfterLogin.SA.BonusSA.Activity.BonusActivitySA;
 import com.naufalrafizi.dewarumah.AfterLogin.SA.ProfilSA.ProfilActivitySA;
-import com.naufalrafizi.dewarumah.AfterLogin.SA.TokoSA.TokoActivitySA;
+import com.naufalrafizi.dewarumah.AfterLogin.SA.TokoSA.Activity.TokoActivitySA;
 import com.naufalrafizi.dewarumah.AfterLogin.SA.InputProspekSA.Activity.InputProspekSA;
 import com.naufalrafizi.dewarumah.AfterLogin.SA.ProspekSA.Activity.ProspekActivitySA;
 import com.naufalrafizi.dewarumah.R;
