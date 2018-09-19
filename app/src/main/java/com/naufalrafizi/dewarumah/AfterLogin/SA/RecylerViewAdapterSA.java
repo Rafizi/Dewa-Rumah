@@ -39,6 +39,7 @@ public class RecylerViewAdapterSA extends RecyclerView.Adapter<RecylerViewAdapte
         RecylerViewAdapterSA.ViewHolder viewHolder = new RecylerViewAdapterSA.ViewHolder(v);
 
         return viewHolder;
+
     }
 
     @Override

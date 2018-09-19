@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 import com.naufalrafizi.dewarumah.AfterLogin.GM.MainActivityGM;
 import com.naufalrafizi.dewarumah.AfterLogin.SA.MainActivitySAgent;
-import com.naufalrafizi.dewarumah.AfterLogin.SC.Activity.MainActivitySConsultan;
+import com.naufalrafizi.dewarumah.AfterLogin.SC.MainActivitySConsultan;
 import com.naufalrafizi.dewarumah.R;
 
 public class Login extends AppCompatActivity {

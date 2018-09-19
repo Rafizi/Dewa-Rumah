@@ -9,7 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.naufalrafizi.dewarumah.AfterLogin.SA.BonusSA.BonusActivitySA;
+import com.naufalrafizi.dewarumah.AfterLogin.SA.BonusSA.Activity.BonusActivitySA;
 import com.naufalrafizi.dewarumah.AfterLogin.SA.ProfilSA.ProfilActivitySA;
 import com.naufalrafizi.dewarumah.AfterLogin.SA.TokoSA.TokoActivitySA;
 import com.naufalrafizi.dewarumah.AfterLogin.SA.InputProspekSA.Activity.InputProspekSA;

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.naufalrafizi.dewarumah.AfterLogin.SC.Activity.MainActivitySConsultan">
+    tools:context="com.naufalrafizi.dewarumah.AfterLogin.SC.MainActivitySConsultan">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -109,7 +109,7 @@
                             android:paddingLeft="10dp">
 
                             <ImageView
-                                android:id="@+id/btnDataSA"
+                                android:id="@+id/btnDataAgentSC"
                                 android:layout_width="50dp"
                                 android:layout_height="50dp"
                                 android:src="@drawable/ic_wallet" />

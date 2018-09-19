@@ -1,4 +1,4 @@
-package com.naufalrafizi.dewarumah.AfterLogin.SC.Adapter;
+package com.naufalrafizi.dewarumah.AfterLogin.SC;
 
 import android.content.Context;
 import android.content.Intent;

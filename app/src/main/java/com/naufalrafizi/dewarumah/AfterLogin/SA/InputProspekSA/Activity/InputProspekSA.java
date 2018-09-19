@@ -20,8 +20,8 @@ import java.util.List;
 
 public class InputProspekSA extends AppCompatActivity implements View.OnClickListener {
 
-    TextInputEditText edtNamaInputProspek,edtProjectInputProspek,edtEmailInputProspek,edtSAInputProspek,edtNomorTelponInputProspek;
-    Button btnSubmitInputProspek,btnRead;
+    TextInputEditText edtNamaInputProspek, edtProjectInputProspek, edtEmailInputProspek, edtSAInputProspek, edtNomorTelponInputProspek;
+    Button btnSubmitInputProspek, btnRead;
     DataHelper helper;
     List<MInputProspek> pList = new ArrayList<>();
     RecyclerViewAdapterProspekSA adapter;
@@ -45,45 +45,59 @@ public class InputProspekSA extends AppCompatActivity implements View.OnClickLis
         //membuat sambungan baru ke database
 
 
-
     }
 
 
-
     private void Inisialisasi() {
-        btnSubmitInputProspek = (Button)findViewById(R.id.btnSubmitInputProspek);
-        btnRead = (Button)findViewById(R.id.btnRead);
+        btnSubmitInputProspek = (Button) findViewById(R.id.btnSubmitInputProspek);
+        btnRead = (Button) findViewById(R.id.btnRead);
 
-        edtNamaInputProspek= (TextInputEditText)findViewById(R.id.edtNamaInputProspek);
-        edtProjectInputProspek= (TextInputEditText)findViewById(R.id.edtProjectInputProspek);
-        edtEmailInputProspek= (TextInputEditText)findViewById(R.id.edtEmailInputProspek);
-        edtSAInputProspek = (TextInputEditText)findViewById(R.id.edtSAInputProspek);
-        edtNomorTelponInputProspek = (TextInputEditText)findViewById(R.id.edtNomorTelponInputProspek);
+        edtNamaInputProspek = (TextInputEditText) findViewById(R.id.edtNamaInputProspek);
+        edtProjectInputProspek = (TextInputEditText) findViewById(R.id.edtProjectInputProspek);
+        edtEmailInputProspek = (TextInputEditText) findViewById(R.id.edtEmailInputProspek);
+        edtSAInputProspek = (TextInputEditText) findViewById(R.id.edtSAInputProspek);
+        edtNomorTelponInputProspek = (TextInputEditText) findViewById(R.id.edtNomorTelponInputProspek);
 
     }
 
     @Override
     public void onClick(View v) {
 
-        switch (v.getId()){
-            case R.id.btnSubmitInputProspek :
-                //insert data barang baru
+        String nama, email, nomor, sa, project;
 
-                createNote(
-                        edtNamaInputProspek.getText().toString(),
-                        edtEmailInputProspek.getText().toString(),
-                        edtNomorTelponInputProspek.getText().toString(),
-                        edtSAInputProspek.getText().toString(),
-                        edtProjectInputProspek.getText().toString()
-                );
-                Toast.makeText(this, "Data Masuk :"
-                        + p.getId()+",\t"
-                        + p.getNama_prospek()+",\t"
-                        + p.getEmail_prospek()+",\t"
-                        + p.getNotelp_prospek()+",\t"
-                        + p.getSa_prospek()+",\t"
-                        + p.getProject_prospek()+",\t"
-                        , Toast.LENGTH_SHORT).show();
+        switch (v.getId()) {
+            case R.id.btnSubmitInputProspek:
+                //insert data barang baru
+                nama = edtNamaInputProspek.getText().toString();
+                email = edtEmailInputProspek.getText().toString();
+                nomor = edtNomorTelponInputProspek.getText().toString();
+                sa = edtSAInputProspek.getText().toString();
+                project = edtProjectInputProspek.getText().toString();
+
+                if (nama.isEmpty() || email.isEmpty() || nomor.isEmpty() || sa.isEmpty() || project.isEmpty()){
+                    Toast.makeText(this, "Masukin yang bener woi", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    createNote(
+                            edtNamaInputProspek.getText().toString(),
+                            edtEmailInputProspek.getText().toString(),
+                            edtNomorTelponInputProspek.getText().toString(),
+                            edtSAInputProspek.getText().toString(),
+                            edtProjectInputProspek.getText().toString()
+                    );
+
+                            Toast.makeText(this, "Data Masuk :"
+                                            + p.getId() + ",\t"
+                                            + p.getNama_prospek() + ",\t"
+                                            + p.getEmail_prospek() + ",\t"
+                                            + p.getNotelp_prospek() + ",\t"
+                                            + p.getSa_prospek() + ",\t"
+                                            + p.getProject_prospek() + ",\t"
+                                    , Toast.LENGTH_SHORT).show();
+
+                }
+
+
                 break;
 
             case R.id.btnRead:
@@ -95,7 +109,7 @@ public class InputProspekSA extends AppCompatActivity implements View.OnClickLis
     private void createNote(String nama, String email, String notelp, String sa, String project) {
         // inserting note in db and getting
         // newly inserted note id
-        long id = helper.createProspek(nama,email,notelp,sa,project);
+        long id = helper.createProspek(nama, email, notelp, sa, project);
 
         // get the newly inserted note from db
         MInputProspek n = helper.getProspek(id);
@@ -108,7 +122,6 @@ public class InputProspekSA extends AppCompatActivity implements View.OnClickLis
 
         }
     }
-
 
 
     /**
