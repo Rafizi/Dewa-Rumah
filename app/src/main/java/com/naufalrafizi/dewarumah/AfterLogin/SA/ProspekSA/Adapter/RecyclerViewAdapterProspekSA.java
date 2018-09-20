@@ -109,6 +109,13 @@ public class RecyclerViewAdapterProspekSA extends RecyclerView.Adapter<RecyclerV
                                 edtProject.getText().toString(),
                                 position
                         );
+                        Toast.makeText(context, "Data Berhasil di update", Toast.LENGTH_SHORT).show();
+                    }
+                });
+                b.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();
                     }
                 });
                 AlertDialog dialog = b.create();

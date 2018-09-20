@@ -68,7 +68,7 @@
                                 android:id="@+id/btnBonus"
                                 android:layout_width="50dp"
                                 android:layout_height="50dp"
-                                android:src="@mipmap/ic_launcher_round" />
+                                android:src="@mipmap/ic_bonus" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -90,7 +90,7 @@
                                 android:id="@+id/btnProspek"
                                 android:layout_width="50dp"
                                 android:layout_height="50dp"
-                                android:src="@mipmap/ic_profile" />
+                                android:src="@mipmap/ic_prospek" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -112,7 +112,7 @@
                                 android:id="@+id/btnToko"
                                 android:layout_width="50dp"
                                 android:layout_height="50dp"
-                                android:src="@drawable/ic_wallet" />
+                                android:src="@mipmap/ic_toko" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -133,7 +133,7 @@
                                 android:id="@+id/btnInputProspek"
                                 android:layout_width="50dp"
                                 android:layout_height="50dp"
-                                android:src="@drawable/ic_menu_send" />
+                                android:src="@mipmap/ic_input" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -155,7 +155,7 @@
                                 android:id="@+id/btnProfil"
                                 android:layout_width="50dp"
                                 android:layout_height="50dp"
-                                android:src="@drawable/ic_menu_gallery" />
+                                android:src="@mipmap/ic_propil" />
 
                             <TextView
                                 android:layout_width="wrap_content"

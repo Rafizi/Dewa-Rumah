@@ -2,6 +2,7 @@ package com.naufalrafizi.dewarumah.AfterLogin.SA.TokoSA.Activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
@@ -51,7 +52,7 @@ public class TokoActivitySA extends AppCompatActivity {
     private void setUpRecycler() {
 
         RecyclerView rvListTokoSA = (RecyclerView)findViewById(R.id.rvListTokoSA);
-        rvListTokoSA.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
+        rvListTokoSA.setLayoutManager(new GridLayoutManager(this,2));
         rvAdapterTokoSA = new RecyclerViewAdapterTokoSA(getApplicationContext(), gambarBarang,namaBarang,hargaBarang);
         rvListTokoSA.setAdapter(rvAdapterTokoSA);
 

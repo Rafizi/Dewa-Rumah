@@ -21,7 +21,7 @@ public class MainActivitySConsultan extends AppCompatActivity {
     ViewPagerAdapterSC vpAdapterSC;
     CircleIndicator indicatorSC;
     RecyclerViewAdapterSC rvAdapterSC;
-    ImageView btnDataAgentSC,btnDataProspek;
+    ImageView btnDataAgentSC,btnDataProspek,btnTimeline,btnProgress;
 
     int [] ImagePromoSC = {
 
@@ -66,12 +66,27 @@ public class MainActivitySConsultan extends AppCompatActivity {
             }
         });
 
+        btnTimeline.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+        btnProgress.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
     }
 
     private void inisialisasi() {
 
         btnDataAgentSC = (ImageView)findViewById(R.id.btnDataAgentSC);
         btnDataProspek = (ImageView)findViewById(R.id.btnDataProspek);
+        btnTimeline = (ImageView)findViewById(R.id.btnTimeline);
+        btnProgress = (ImageView)findViewById(R.id.btnProgress);
 
     }
 

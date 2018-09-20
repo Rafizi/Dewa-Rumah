@@ -68,7 +68,7 @@
                                 android:id="@+id/btnTimeline"
                                 android:layout_width="50dp"
                                 android:layout_height="50dp"
-                                android:src="@mipmap/ic_launcher_round" />
+                                android:src="@mipmap/ic_timeline" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -90,7 +90,7 @@
                                 android:id="@+id/btnProgress"
                                 android:layout_width="50dp"
                                 android:layout_height="50dp"
-                                android:src="@mipmap/ic_profile" />
+                                android:src="@mipmap/ic_progress" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -112,7 +112,7 @@
                                 android:id="@+id/btnDataAgentSC"
                                 android:layout_width="50dp"
                                 android:layout_height="50dp"
-                                android:src="@drawable/ic_wallet" />
+                                android:src="@mipmap/ic_data" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -133,7 +133,7 @@
                                 android:id="@+id/btnDataProspek"
                                 android:layout_width="50dp"
                                 android:layout_height="50dp"
-                                android:src="@drawable/ic_menu_send" />
+                                android:src="@mipmap/ic_prospek" />
 
                             <TextView
                                 android:layout_width="wrap_content"

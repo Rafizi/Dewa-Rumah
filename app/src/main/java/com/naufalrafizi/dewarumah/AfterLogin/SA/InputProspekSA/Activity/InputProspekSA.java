@@ -86,14 +86,7 @@ public class InputProspekSA extends AppCompatActivity implements View.OnClickLis
                             edtProjectInputProspek.getText().toString()
                     );
 
-                            Toast.makeText(this, "Data Masuk :"
-                                            + p.getId() + ",\t"
-                                            + p.getNama_prospek() + ",\t"
-                                            + p.getEmail_prospek() + ",\t"
-                                            + p.getNotelp_prospek() + ",\t"
-                                            + p.getSa_prospek() + ",\t"
-                                            + p.getProject_prospek() + ",\t"
-                                    , Toast.LENGTH_SHORT).show();
+                            Toast.makeText(this, "Data berhasil di tambahkan", Toast.LENGTH_SHORT).show();
 
                 }
 

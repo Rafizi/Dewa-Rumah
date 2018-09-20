@@ -1,10 +1,13 @@
 package com.naufalrafizi.dewarumah.AfterLogin.SA.TokoSA.Adapter;
 
 import android.content.Context;
+import android.media.Image;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.naufalrafizi.dewarumah.R;
 
@@ -41,18 +44,27 @@ public class RecyclerViewAdapterTokoSA extends RecyclerView.Adapter<RecyclerView
 
     @Override
     public void onBindViewHolder(RecyclerViewAdapterTokoSA.ViewHolder holder, int position) {
-
+        String txtbarang = mNamaBarng[position];
+        String txtharga = mHargaBarang[position];
+        int imgbarang = mGambarBarang[position];
+        holder.tvNamaBarang.setText(txtbarang);
+        holder.ivBarang.setImageResource(imgbarang);
 
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return mGambarBarang.length;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
+        ImageView ivBarang;
+        TextView tvNamaBarang;
         public ViewHolder(View itemView) {
             super(itemView);
+
+            ivBarang = (ImageView) itemView.findViewById(R.id.imgGambarBarang);
+            tvNamaBarang = (TextView) itemView.findViewById(R.id.txtNamaBarang);
         }
     }
 }
