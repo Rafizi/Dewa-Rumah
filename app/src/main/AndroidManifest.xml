@@ -42,7 +42,8 @@
         <activity android:name=".AfterLogin.SC.MainActivitySConsultan"></activity>
         <activity android:name=".AfterLogin.GM.MainActivityGM" />
         <activity android:name=".AfterLogin.SA.TokoSA.Activity.TokoActivitySA" />
-        <activity android:name=".AfterLogin.SA.ProspekSA.Activity.ProspekActivitySA" />
+        <activity android:name=".AfterLogin.SA.ProspekSA.Activity.ProspekActivitySA"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".AfterLogin.SA.ProfilSA.ProfilActivitySA" />
         <activity android:name=".AfterLogin.SA.InputProspekSA.Activity.InputProspekSA" />
         <activity android:name=".AfterLogin.SA.BonusSA.Activity.BonusActivitySA" />

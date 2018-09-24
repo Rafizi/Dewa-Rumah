@@ -158,6 +158,59 @@ public class DataHelper extends SQLiteOpenHelper {
         return daftarProspek;
     }
 
+    public List<String> getName(){
+        List<String> daftarProspek = new ArrayList<>();
+
+        // select all SQL Query
+        String selectQuery = "SELECT " +MInputProspek.COLUMN_NAME+  " FROM " + MInputProspek.TABLE_NAME ;
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+                daftarProspek.add(cursor.getString(cursor.getColumnIndex("namaProspek")));
+            } while (cursor.moveToNext());
+        }
+
+        // close db connection
+        db.close();
+
+        // return notes list
+        return daftarProspek;
+    }
+
+    public List<MInputProspek>getSearchByName (String name){
+        List<MInputProspek> daftarProspek = new ArrayList<>();
+
+        // select all SQL Query
+        String sql="SELECT * FROM "+MInputProspek.TABLE_NAME+" WHERE "+MInputProspek.COLUMN_NAME+" LIKE '%"+name+"%'";
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(sql, null);
+
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+                MInputProspek note = new MInputProspek();
+                note.setId(cursor.getInt(cursor.getColumnIndex(MInputProspek.COLUMN_ID)));
+                note.setNama_prospek(cursor.getString(cursor.getColumnIndex(MInputProspek.COLUMN_NAME)));
+                note.setEmail_prospek(cursor.getString(cursor.getColumnIndex(MInputProspek.COLUMN_EMAIL)));
+                note.setNotelp_prospek(cursor.getString(cursor.getColumnIndex(MInputProspek.COLUMN_NO_TELP)));
+                note.setSa_prospek(cursor.getString(cursor.getColumnIndex(MInputProspek.COLUMN_SA)));
+                note.setProject_prospek(cursor.getString(cursor.getColumnIndex(MInputProspek.COLUMN_PROJECT)));
+
+                daftarProspek.add(note);
+            } while (cursor.moveToNext());
+        }
+
+        // close db connection
+        db.close();
+
+        // return notes list
+        return daftarProspek;
+    }
     public int getProjectCount() {
         String countQuery = "SELECT  * FROM " + MInputProspek.TABLE_NAME;
         SQLiteDatabase db = this.getReadableDatabase();
