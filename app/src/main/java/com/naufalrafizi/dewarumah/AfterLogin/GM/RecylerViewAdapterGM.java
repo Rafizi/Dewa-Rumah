@@ -1,4 +1,4 @@
-package com.naufalrafizi.dewarumah.AfterLogin.SC;
+package com.naufalrafizi.dewarumah.AfterLogin.GM;
 
 import android.content.Context;
 import android.content.Intent;
@@ -14,18 +14,18 @@ import com.naufalrafizi.dewarumah.AfterLogin.GM.DataGM.Activity.DataGMActivity;
 import com.naufalrafizi.dewarumah.R;
 
 /**
- * Created by Asus on 9/3/2018.
+ * Created by Asus on 9/21/2018.
  */
 
-public class RecyclerViewAdapterSC extends RecyclerView.Adapter<RecyclerViewAdapterSC.ViewHolder> {
+class RecylerViewAdapterGM extends RecyclerView.Adapter<RecylerViewAdapterGM.ViewHolder>{
 
     private int [] mImagePromo = new int[0];
     private Context c;
     private LayoutInflater inflater;
 
-    public RecyclerViewAdapterSC(Context c, int[] ImagePromoSC){
+    public RecylerViewAdapterGM(Context c, int[] ImagePromoGM){
 
-        this.mImagePromo = ImagePromoSC;
+        this.mImagePromo = ImagePromoGM;
 //        this.mNamaPromo = NamaPromo;
         this.c = c.getApplicationContext();
         this.inflater = LayoutInflater.from(c);
@@ -33,15 +33,15 @@ public class RecyclerViewAdapterSC extends RecyclerView.Adapter<RecyclerViewAdap
     }
 
     @Override
-    public RecyclerViewAdapterSC.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public RecylerViewAdapterGM.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = inflater.inflate(R.layout.costum_adapter_recyler_view,parent,false);
-        RecyclerViewAdapterSC.ViewHolder viewHolder = new RecyclerViewAdapterSC.ViewHolder(v);
+        RecylerViewAdapterGM.ViewHolder viewHolder = new RecylerViewAdapterGM.ViewHolder(v);
 
         return viewHolder;
     }
 
     @Override
-    public void onBindViewHolder(RecyclerViewAdapterSC.ViewHolder holder, int position) {
+    public void onBindViewHolder(RecylerViewAdapterGM.ViewHolder holder, int position) {
 
         final int ImageProject = mImagePromo[position];
 //        final String NamaProject = mNamaPromo[position];
@@ -59,7 +59,6 @@ public class RecyclerViewAdapterSC extends RecyclerView.Adapter<RecyclerViewAdap
             }
         });
 
-
     }
 
     @Override
@@ -68,13 +67,17 @@ public class RecyclerViewAdapterSC extends RecyclerView.Adapter<RecyclerViewAdap
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
+
         ImageView imgListProject;
         TextView txtListProject;
         CardView cvListProject;
+
         public ViewHolder(View itemView) {
             super(itemView);
+
             cvListProject = (CardView)itemView.findViewById(R.id.cvListProject);
             imgListProject = (ImageView) itemView.findViewById(R.id.imgListProject);
+
         }
     }
 }

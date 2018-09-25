@@ -25,6 +25,7 @@ public class MainActivitySAgent extends AppCompatActivity {
     CircleIndicator indicator;
     RecylerViewAdapterSA rvAdapterSA;
     ImageView btnToko,btnProfil,btnProspek,btnInput,btnBonus;
+    String nama;
 
     int [] ImagePromoSA = {
 
@@ -46,6 +47,8 @@ public class MainActivitySAgent extends AppCompatActivity {
         setContentView(R.layout.activity_main_sagent);
 
         inisialisasi();
+
+        nama = getIntent().getStringExtra("nama");
 
         setUpViewPager();
         setUpRecylerView();
@@ -72,6 +75,8 @@ public class MainActivitySAgent extends AppCompatActivity {
             }
         });
 
+
+
         btnProspek.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -84,7 +89,9 @@ public class MainActivitySAgent extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                startActivity(new Intent(getApplicationContext(),ProfilActivitySA.class));
+                Intent i = new Intent(getApplicationContext(),ProfilActivitySA.class);
+                i.putExtra("nama",nama);
+                startActivity(i);
 
             }
         });
