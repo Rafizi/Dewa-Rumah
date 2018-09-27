@@ -55,7 +55,6 @@ public class InputProspekSA extends AppCompatActivity implements View.OnClickLis
         edtNamaInputProspek = (TextInputEditText) findViewById(R.id.edtNamaInputProspek);
         edtProjectInputProspek = (TextInputEditText) findViewById(R.id.edtProjectInputProspek);
         edtEmailInputProspek = (TextInputEditText) findViewById(R.id.edtEmailInputProspek);
-        edtSAInputProspek = (TextInputEditText) findViewById(R.id.edtSAInputProspek);
         edtNomorTelponInputProspek = (TextInputEditText) findViewById(R.id.edtNomorTelponInputProspek);
 
     }
@@ -71,10 +70,9 @@ public class InputProspekSA extends AppCompatActivity implements View.OnClickLis
                 nama = edtNamaInputProspek.getText().toString();
                 email = edtEmailInputProspek.getText().toString();
                 nomor = edtNomorTelponInputProspek.getText().toString();
-                sa = edtSAInputProspek.getText().toString();
                 project = edtProjectInputProspek.getText().toString();
 
-                if (nama.isEmpty() || email.isEmpty() || nomor.isEmpty() || sa.isEmpty() || project.isEmpty()){
+                if (nama.isEmpty() || email.isEmpty() || nomor.isEmpty() || project.isEmpty()){
                     Toast.makeText(this, "Masukin yang bener woi", Toast.LENGTH_SHORT).show();
                 }
                 else {
@@ -82,7 +80,6 @@ public class InputProspekSA extends AppCompatActivity implements View.OnClickLis
                             edtNamaInputProspek.getText().toString(),
                             edtEmailInputProspek.getText().toString(),
                             edtNomorTelponInputProspek.getText().toString(),
-                            edtSAInputProspek.getText().toString(),
                             edtProjectInputProspek.getText().toString()
                     );
 
@@ -99,10 +96,10 @@ public class InputProspekSA extends AppCompatActivity implements View.OnClickLis
     }
 
 
-    private void createNote(String nama, String email, String notelp, String sa, String project) {
+    private void createNote(String nama, String email, String notelp,  String project) {
         // inserting note in db and getting
         // newly inserted note id
-        long id = helper.createProspek(nama, email, notelp, sa, project);
+        long id = helper.createProspek(nama, email, notelp,  project);
 
         // get the newly inserted note from db
         MInputProspek n = helper.getProspek(id);

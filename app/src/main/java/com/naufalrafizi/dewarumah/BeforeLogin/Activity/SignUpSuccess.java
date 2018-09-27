@@ -19,6 +19,7 @@ public class SignUpSuccess extends AppCompatActivity {
 
         nama = getIntent().getStringExtra("nama");
 
+        txtNama = (TextView)findViewById(R.id.txtNamaSuccesSignUp);
         txtNama.setText(nama);
 
     }

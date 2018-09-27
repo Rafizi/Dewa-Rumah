@@ -5,6 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
+
     tools:context="com.naufalrafizi.dewarumah.AfterLogin.SA.InputProspekSA.Activity.InputProspekSA">
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -33,48 +35,6 @@
                     android:textSize="8pt" />
 
             </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:background="@drawable/blue_edit_text"
-                android:orientation="horizontal">
-
-                <android.support.design.widget.TextInputEditText
-                    android:id="@+id/edtProjectInputProspek"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_margin="8dp"
-                    android:background="#00000000"
-                    android:hint="Project"
-                    android:lines="1"
-                    android:maxLines="1"
-                    android:textSize="8pt" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:background="@drawable/blue_edit_text"
-                android:orientation="horizontal">
-
-                <android.support.design.widget.TextInputEditText
-                    android:id="@+id/edtSAInputProspek"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_margin="8dp"
-                    android:background="#00000000"
-                    android:hint="SA"
-                    android:lines="1"
-                    android:maxLines="1"
-                    android:textSize="8pt" />
-
-            </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -95,7 +55,6 @@
                     android:textSize="8pt" />
 
             </LinearLayout>
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -117,6 +76,27 @@
                     android:textSize="8pt" />
 
             </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:background="@drawable/blue_edit_text"
+                android:orientation="horizontal">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/edtProjectInputProspek"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="8dp"
+                    android:background="#00000000"
+                    android:hint="Project"
+                    android:lines="1"
+                    android:maxLines="1"
+                    android:textSize="8pt" />
+
+            </LinearLayout>
+
 
             <Button
                 android:id="@+id/btnSubmitInputProspek"
@@ -133,11 +113,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="16dp"
+                android:layout_marginBottom="5dp"
                 android:background="@drawable/blue_edit_text"
                 android:text="Lihat Data"
                 android:textSize="14dp"
                 android:textColor="#000"/>
         </LinearLayout>
+
     </android.support.v4.widget.NestedScrollView>
 
 </LinearLayout>

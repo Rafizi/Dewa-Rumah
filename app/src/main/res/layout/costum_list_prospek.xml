@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@android:color/white"
+    android:background="@color/color_cv"
     android:orientation="vertical"
     android:padding="@dimen/activity_horizontal_margin">
 
@@ -24,7 +24,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="5dp">
+                android:padding="5dp"
+                android:layout_gravity="center">
 
                 <TextView
                     android:id="@+id/txtNama"
@@ -40,12 +41,6 @@
                     android:text="Email"
                     android:textColor="@color/color_tv" />
 
-                <TextView
-                    android:id="@+id/txtSA"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="SA"
-                    android:textColor="@color/color_tv" />
 
                 <TextView
                     android:id="@+id/txtNoTelp"

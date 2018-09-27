@@ -38,7 +38,7 @@ public class DataHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public long createProspek(String nama, String email, String notelp, String sa, String project) {
+    public long createProspek(String nama, String email, String notelp, String project) {
 
         SQLiteDatabase db = this.getWritableDatabase();
 
@@ -48,7 +48,7 @@ public class DataHelper extends SQLiteOpenHelper {
         values.put(MInputProspek.COLUMN_EMAIL, email);
         values.put(MInputProspek.COLUMN_NO_TELP, notelp);
         values.put(MInputProspek.COLUMN_PROJECT, project);
-        values.put(MInputProspek.COLUMN_SA, sa);
+
 
         // mengeksekusi perintah SQL insert data
         // yang akan mengembalikan sebuah insert ID
@@ -230,7 +230,6 @@ public class DataHelper extends SQLiteOpenHelper {
         values.put(MInputProspek.COLUMN_NAME, p.getNama_prospek());
         values.put(MInputProspek.COLUMN_EMAIL, p.getEmail_prospek());
         values.put(MInputProspek.COLUMN_NO_TELP, p.getNotelp_prospek());
-        values.put(MInputProspek.COLUMN_SA, p.getSa_prospek());
         values.put(MInputProspek.COLUMN_PROJECT, p.getProject_prospek());
 
         // updating row

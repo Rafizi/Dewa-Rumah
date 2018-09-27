@@ -74,7 +74,6 @@ public class RecyclerViewAdapterProspekSA extends RecyclerView.Adapter<RecyclerV
 
         holder.nama.setText("Nama   : " + namaProspek);
         holder.email.setText("Email : " + Email);
-        holder.SA.setText("SA   : " + Sa);
         holder.notelp.setText("No Telp  : " + nomorTelpon);
         holder.project.setText("Project : " + Project);
 
@@ -88,14 +87,14 @@ public class RecyclerViewAdapterProspekSA extends RecyclerView.Adapter<RecyclerV
                 final EditText edtNama = (EditText) v.findViewById(R.id.evNamaP);
                 final EditText edtEmail = (EditText) v.findViewById(R.id.evEmailP);
                 final EditText edtPhone = (EditText) v.findViewById(R.id.evNohpP);
-                final EditText edtSa = (EditText) v.findViewById(R.id.evSaP);
+
                 final EditText edtProject = (EditText) v.findViewById(R.id.evProjectP);
 
                 if (object != null) {
                     edtNama.setText(object.getNama_prospek());
                     edtEmail.setText(object.getEmail_prospek());
                     edtPhone.setText(object.getNotelp_prospek());
-                    edtSa.setText(object.getSa_prospek());
+
                     edtProject.setText(object.getProject_prospek());
                 }
                 b.setPositiveButton("Edit", new DialogInterface.OnClickListener() {
@@ -104,7 +103,7 @@ public class RecyclerViewAdapterProspekSA extends RecyclerView.Adapter<RecyclerV
                         updateProspek(
                                 edtNama.getText().toString(),
                                 edtEmail.getText().toString(),
-                                edtSa.getText().toString(),
+
                                 edtPhone.getText().toString(),
                                 edtProject.getText().toString(),
                                 position
@@ -241,7 +240,7 @@ public class RecyclerViewAdapterProspekSA extends RecyclerView.Adapter<RecyclerV
                         edtNama.getText().toString(),
                         edtEmail.getText().toString(),
                         edtPhone.getText().toString(),
-                        edtSa.getText().toString(),
+
                         edtProject.getText().toString(), position
                 );
             }
@@ -278,12 +277,12 @@ public class RecyclerViewAdapterProspekSA extends RecyclerView.Adapter<RecyclerV
         notifyItemRemoved(position);
     }
 
-    private void updateProspek(String nama, String email, String sa, String notelp, String project, int position) {
+    private void updateProspek(String nama, String email,  String notelp, String project, int position) {
         MInputProspek n = data.get(position);
         // updating note text
         n.setNama_prospek(nama);
         n.setEmail_prospek(email);
-        n.setSa_prospek(sa);
+
         n.setNotelp_prospek(notelp);
         n.setProject_prospek(project);
 
@@ -313,7 +312,6 @@ public class RecyclerViewAdapterProspekSA extends RecyclerView.Adapter<RecyclerV
             cvProspek = (CardView) itemView.findViewById(R.id.cvProspekSA);
             nama = (TextView) itemView.findViewById(R.id.txtNama);
             project = (TextView) itemView.findViewById(R.id.txtProject);
-            SA = (TextView) itemView.findViewById(R.id.txtSA);
             email = (TextView) itemView.findViewById(R.id.txtEmail);
             notelp = (TextView) itemView.findViewById(R.id.txtNoTelp);
             ivDelete = (ImageView)itemView.findViewById(R.id.ivDelete);
