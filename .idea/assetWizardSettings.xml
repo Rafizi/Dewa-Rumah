@@ -35,7 +35,7 @@
                                           <PersistentState>
                                             <option name="values">
                                               <map>
-                                                <entry key="url" value="jar:file:/D:/NA/Android%20Studio/plugins/android/lib/android.jar!/images/material_design_icons/image/ic_dehaze_black_24dp.xml" />
+                                                <entry key="url" value="jar:file:/D:/NA/Android%20Studio/plugins/android/lib/android.jar!/images/material_design_icons/communication/ic_mail_outline_black_24dp.xml" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -60,7 +60,7 @@
                                       <entry key="cropped" value="true" />
                                       <entry key="iconShape" value="CIRCLE" />
                                       <entry key="imageAsset" value="D:\NA\Picture\Photoshop\Onsnrgno\Ikon\coin - white.png" />
-                                      <entry key="outputName" value="ic_prospek" />
+                                      <entry key="outputName" value="ic_email" />
                                     </map>
                                   </option>
                                 </PersistentState>

@@ -5,4 +5,7 @@
     <color name="colorPrimaryDark">#3db3ca</color>
     <color name="colorAccent">#FF4081</color>
 
+    <color name="color_cv">#FFF</color>
+    <color name="color_tv">#000</color>
+
 </resources>

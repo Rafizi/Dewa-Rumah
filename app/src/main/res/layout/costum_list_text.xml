@@ -1,37 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <android.support.v7.widget.CardView
         android:id="@+id/cvDataGM"
-        android:layout_margin="8dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        app:cardBackgroundColor="@color/color_cv">
 
         <LinearLayout
-            android:padding="8dp"
             android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_height="match_parent">
+            android:padding="8dp">
 
             <TextView
                 android:id="@+id/txtDataSA"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="data"/>
+                android:text="data"
+                android:textColor="@color/color_tv" />
 
             <TextView
                 android:id="@+id/txtDataSC"
-                android:text="SC"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:text="SC"
+                android:textColor="@color/color_tv" />
 
             <TextView
                 android:id="@+id/txtDataProspek"
-                android:text="Prospek"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:text="Prospek"
+                android:textColor="@color/color_tv" />
 
         </LinearLayout>
     </android.support.v7.widget.CardView>

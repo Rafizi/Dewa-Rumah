@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
     android:background="@android:color/white"
+    android:orientation="vertical"
     android:padding="@dimen/activity_horizontal_margin">
 
     <android.support.v7.widget.CardView
         android:id="@+id/cvProspekSA"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:color/white">
+        android:background="@android:color/white"
+        app:cardBackgroundColor="@color/color_cv">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -28,52 +30,61 @@
                     android:id="@+id/txtNama"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="nama" />
+                    android:text="nama"
+                    android:textColor="@color/color_tv" />
+
                 <TextView
                     android:id="@+id/txtEmail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Email" />
+                    android:text="Email"
+                    android:textColor="@color/color_tv" />
 
                 <TextView
                     android:id="@+id/txtSA"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="SA" />
+                    android:text="SA"
+                    android:textColor="@color/color_tv" />
+
                 <TextView
                     android:id="@+id/txtNoTelp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="No Telp" />
+                    android:text="No Telp"
+                    android:textColor="@color/color_tv" />
+
                 <TextView
                     android:id="@+id/txtProject"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Project" />
+                    android:text="Project"
+                    android:textColor="@color/color_tv" />
 
             </LinearLayout>
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="end|center"
                 tools:ignore="RtlHardcoded">
+
                 <ImageView
                     android:id="@+id/ivUpdate"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:layout_marginTop="8dp"
                     android:layout_marginBottom="8dp"
+                    android:layout_marginTop="8dp"
 
-                    android:src="@mipmap/ic_update"
-                    />
+                    android:src="@mipmap/ic_update" />
+
                 <ImageView
                     android:id="@+id/ivDelete"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@mipmap/ic_delete"
-                    android:layout_marginBottom="8dp"
                     android:layout_below="@+id/ivUpdate"
-                    />
+                    android:layout_marginBottom="8dp"
+                    android:src="@mipmap/ic_delete" />
             </RelativeLayout>
 
         </LinearLayout>
