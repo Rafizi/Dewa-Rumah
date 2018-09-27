@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.naufalrafizi.dewarumah.AfterLogin.GM.DataGM.Activity.DataGMActivity;
 import com.naufalrafizi.dewarumah.R;
 
 /**
@@ -51,7 +50,7 @@ class RecylerViewAdapterGM extends RecyclerView.Adapter<RecylerViewAdapterGM.Vie
             @Override
             public void onClick(View v) {
 
-                Intent i = new Intent(c, DataGMActivity.class);
+                Intent i = new Intent(c, DetailPromoGM.class);
 //                i.putExtra("nama",NamaProject);
                 i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 c.startActivity(i);

@@ -51,7 +51,7 @@ public class RecyclerViewAdapterSC extends RecyclerView.Adapter<RecyclerViewAdap
             @Override
             public void onClick(View v) {
 
-                Intent i = new Intent(c, DataGMActivity.class);
+                Intent i = new Intent(c, DetailPromoSC.class);
 //                i.putExtra("nama",NamaProject);
                 i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 c.startActivity(i);

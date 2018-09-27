@@ -36,8 +36,8 @@ public class BonusActivitySA extends AppCompatActivity {
     private void setUpViewPager(ViewPager vpBonusSA) {
 
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new FPointSA(),"Poin");
         adapter.addFragment(new FBonusSA(),"Bonus");
+        adapter.addFragment(new FPointSA(),"Poin");
         vpBonusSA.setAdapter(adapter);
 
     }

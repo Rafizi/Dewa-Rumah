@@ -48,11 +48,15 @@
         <activity android:name=".AfterLogin.SA.ProfilSA.ProfilActivitySA" />
         <activity
             android:name=".AfterLogin.SA.InputProspekSA.Activity.InputProspekSA"
-            android:windowSoftInputMode="stateHidden|adjustResize"/>
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity android:name=".AfterLogin.SA.BonusSA.Activity.BonusActivitySA" />
         <activity android:name=".AfterLogin.SC.DataAgentSC.Activity.DataAgentSC" />
         <activity android:name=".AfterLogin.SC.DataAgentSC.Activity.TimeLineSC" />
-        <activity android:name=".BeforeLogin.Activity.SignUpSuccess"></activity>
+        <activity android:name=".BeforeLogin.Activity.SignUpSuccess" />
+        <activity android:name=".AfterLogin.SA.DetailPromoSA" />
+        <activity android:name=".AfterLogin.GM.DetailPromoGM" />
+        <activity android:name=".AfterLogin.SC.DetailPromoSC"></activity>
     </application>
 
 </manifest>
