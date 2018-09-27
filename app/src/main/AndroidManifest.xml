@@ -46,10 +46,13 @@
             android:name=".AfterLogin.SA.ProspekSA.Activity.ProspekActivitySA"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".AfterLogin.SA.ProfilSA.ProfilActivitySA" />
-        <activity android:name=".AfterLogin.SA.InputProspekSA.Activity.InputProspekSA" />
+        <activity
+            android:name=".AfterLogin.SA.InputProspekSA.Activity.InputProspekSA"
+            android:windowSoftInputMode="stateHidden|adjustResize"/>
         <activity android:name=".AfterLogin.SA.BonusSA.Activity.BonusActivitySA" />
         <activity android:name=".AfterLogin.SC.DataAgentSC.Activity.DataAgentSC" />
         <activity android:name=".AfterLogin.SC.DataAgentSC.Activity.TimeLineSC" />
+        <activity android:name=".BeforeLogin.Activity.SignUpSuccess"></activity>
     </application>
 
 </manifest>
