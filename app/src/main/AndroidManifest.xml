@@ -56,7 +56,10 @@
         <activity android:name=".BeforeLogin.Activity.SignUpSuccess" />
         <activity android:name=".AfterLogin.SA.DetailPromoSA" />
         <activity android:name=".AfterLogin.GM.DetailPromoGM" />
-        <activity android:name=".AfterLogin.SC.DetailPromoSC"></activity>
+        <activity android:name=".AfterLogin.SC.DetailPromoSC" />
+        <activity android:name=".AfterLogin.GM.NotifGM.Activity.NotifGM" />
+        <activity android:name=".AfterLogin.SA.NotifSA.Activity.NotifSA" />
+        <activity android:name=".AfterLogin.SC.NotifSC.Activity.NotifSC"></activity>
     </application>
 
 </manifest>
