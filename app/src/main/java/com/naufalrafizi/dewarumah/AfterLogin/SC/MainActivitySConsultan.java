@@ -11,6 +11,7 @@ import android.widget.ImageView;
 
 import com.naufalrafizi.dewarumah.AfterLogin.SA.ProspekSA.Activity.ProspekActivitySA;
 import com.naufalrafizi.dewarumah.AfterLogin.SC.DataAgentSC.Activity.DataAgentSC;
+import com.naufalrafizi.dewarumah.AfterLogin.SC.NotifSC.Activity.NotifSC;
 import com.naufalrafizi.dewarumah.R;
 
 import me.relex.circleindicator.CircleIndicator;
@@ -21,7 +22,7 @@ public class MainActivitySConsultan extends AppCompatActivity {
     ViewPagerAdapterSC vpAdapterSC;
     CircleIndicator indicatorSC;
     RecyclerViewAdapterSC rvAdapterSC;
-    ImageView btnDataAgentSC,btnDataProspek,btnTimeline,btnProgress;
+    ImageView btnDataAgentSC,btnDataProspek,btnTimeline,btnProgress,btnNotifSC;
 
     int [] ImagePromoSC = {
 
@@ -40,7 +41,7 @@ public class MainActivitySConsultan extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_sconsultan);
+        setContentView(R.layout.toolbar_sc);
 
         inisialisasi();
 
@@ -51,6 +52,13 @@ public class MainActivitySConsultan extends AppCompatActivity {
     }
 
     private void setMenu() {
+
+        btnNotifSC.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), NotifSC.class));
+            }
+        });
 
         btnDataAgentSC.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,6 +91,7 @@ public class MainActivitySConsultan extends AppCompatActivity {
 
     private void inisialisasi() {
 
+        btnNotifSC = (ImageView)findViewById(R.id.notifSC);
         btnDataAgentSC = (ImageView)findViewById(R.id.btnDataAgentSC);
         btnDataProspek = (ImageView)findViewById(R.id.btnDataProspek);
         btnTimeline = (ImageView)findViewById(R.id.btnTimeline);

@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.naufalrafizi.dewarumah.AfterLogin.GM.DataGM.Activity.DataGMActivity;
+import com.naufalrafizi.dewarumah.AfterLogin.GM.NotifGM.Activity.NotifGM;
 import com.naufalrafizi.dewarumah.R;
 
 import me.relex.circleindicator.CircleIndicator;
@@ -20,7 +21,7 @@ public class MainActivityGM extends AppCompatActivity {
     ViewPagerAdapterGm vpAdapterGM;
     CircleIndicator indicatorGM;
     RecylerViewAdapterGM rvAdapterSA;
-    ImageView btnDataGM;
+    ImageView btnDataGM,btnNotifGM;
 
     int [] ImagePromoGM = {
 
@@ -39,7 +40,7 @@ public class MainActivityGM extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_gm);
+        setContentView(R.layout.toolbar_gm);
 
         inisialisasi();
 
@@ -50,6 +51,13 @@ public class MainActivityGM extends AppCompatActivity {
     }
 
     private void setUpMenu() {
+
+        btnNotifGM.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(),NotifGM.class));
+            }
+        });
 
         btnDataGM.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,6 +89,7 @@ public class MainActivityGM extends AppCompatActivity {
 
     private void inisialisasi() {
 
+        btnNotifGM = (ImageView)findViewById(R.id.notifGM);
         btnDataGM = (ImageView)findViewById(R.id.btnDataGM);
 
     }

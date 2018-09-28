@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.naufalrafizi.dewarumah.AfterLogin.SA.BonusSA.Activity.BonusActivitySA;
+import com.naufalrafizi.dewarumah.AfterLogin.SA.NotifSA.Activity.NotifSA;
 import com.naufalrafizi.dewarumah.AfterLogin.SA.ProfilSA.ProfilActivitySA;
 import com.naufalrafizi.dewarumah.AfterLogin.SA.TokoSA.Activity.TokoActivitySA;
 import com.naufalrafizi.dewarumah.AfterLogin.SA.InputProspekSA.Activity.InputProspekSA;
@@ -24,7 +25,7 @@ public class MainActivitySAgent extends AppCompatActivity {
     ViewPagerAdapterSA vpAdapterSA;
     CircleIndicator indicator;
     RecylerViewAdapterSA rvAdapterSA;
-    ImageView btnToko,btnProfil,btnProspek,btnInput,btnBonus;
+    ImageView btnToko,btnProfil,btnProspek,btnInput,btnBonus,btnNotifSA;
     String nama;
 
     int [] ImagePromoSA = {
@@ -44,7 +45,7 @@ public class MainActivitySAgent extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_sagent);
+        setContentView(R.layout.toolbar_sa);
 
         inisialisasi();
 
@@ -58,6 +59,7 @@ public class MainActivitySAgent extends AppCompatActivity {
 
     private void inisialisasi() {
 
+        btnNotifSA = (ImageView)findViewById(R.id.notifSA);
         btnBonus = (ImageView) findViewById(R.id.btnBonus);
         btnToko = (ImageView) findViewById(R.id.btnToko);
         btnProfil = (ImageView) findViewById(R.id.btnProfil);
@@ -67,6 +69,13 @@ public class MainActivitySAgent extends AppCompatActivity {
     }
 
     private void setUpMenu() {
+
+        btnNotifSA.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                 startActivity(new Intent(getApplicationContext(), NotifSA.class));
+            }
+        });
 
         btnToko.setOnClickListener(new View.OnClickListener() {
             @Override
